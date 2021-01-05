@@ -114,7 +114,7 @@ def remove_duplicate_label(repeat_list):
 
 
 def create_train_data(merge_filename_list, new_label_list, keep_idx_list):
-    label_20 = np.load('./voc12/20_class_labels.npy')
+    label_20 = np.load('./voc12/20_class_labels.npy', allow_pickle=True)
     print(len(merge_filename_list), len(new_label_list), label_20.shape)
 
     train_filename_list = []
@@ -147,7 +147,7 @@ if __name__ == '__main__':
     feature_folder_path = os.path.join(args.save_folder, 'feature')
 
     filenamelist = read_train_list()
-    cls20_label = np.load('./voc12/train_label.npy')
+    cls20_label = np.load('./voc12/train_label.npy', allow_pickle=True)
 
     # make the class dictionary
     filename_idx_class_dict, filename_class_dict = make_filename_class_dict(filenamelist, cls20_label)
@@ -161,9 +161,9 @@ if __name__ == '__main__':
 
 
     if args.for_round_nb == 1:
-        features = np.load('{}/R{}_feature.npy'.format(feature_folder_path, args.for_round_nb-1))
+        features = np.load('{}/R{}_feature.npy'.format(feature_folder_path, args.for_round_nb-1), allow_pickle=True)
     else:
-        features = np.load('{}/R{}_feature.npy'.format(feature_folder_path, args.for_round_nb-1))
+        features = np.load('{}/R{}_feature.npy'.format(feature_folder_path, args.for_round_nb-1), allow_pickle=True)
 
     print(len(filenamelist), cls20_label.shape, features.shape)    # 10582, (10582, 20), (10582, 4096)
 

@@ -65,10 +65,10 @@ class Sub_Class_Dataset(Dataset):
         f.close()
         self.filename = self.filename[:-1]  # 16458
 
-        self.label = np.load('{}/label/R{}_train_label_200.npy'.format(save_folder, round_nb))
+        self.label = np.load('{}/label/R{}_train_label_200.npy'.format(save_folder, round_nb), allow_pickle=True)
         self.label = torch.from_numpy(self.label).float()
 
-        self.label_20 = np.load('{}/label/R{}_train_label_20.npy'.format(save_folder, round_nb)) # 16458
+        self.label_20 = np.load('{}/label/R{}_train_label_20.npy'.format(save_folder, round_nb), allow_pickle=True) # 16458
 
         self.label_20 = torch.from_numpy(self.label_20).float()
 
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     timer = pyutils.Timer("Session started: ")
 
 
-    parent_labels = np.load('./voc12/cls_labels.npy').tolist()
+    parent_labels = np.load('./voc12/cls_labels.npy', allow_pickle=True).tolist()
     k_cluster = 10
 
 

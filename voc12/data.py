@@ -41,7 +41,7 @@ def load_image_label_list_from_xml(img_name_list, voc12_root):
     return [load_image_label_from_xml(img_name, voc12_root) for img_name in img_name_list]
 
 def load_image_label_list_from_npy(img_name_list):
-    cls_labels_dict = np.load('voc12/cls_labels.npy').item()
+    cls_labels_dict = np.load('voc12/cls_labels.npy', allow_pickle=True).item()
 
     return [cls_labels_dict[img_name] for img_name in img_name_list]
 
@@ -204,8 +204,8 @@ class VOC12AffDataset(VOC12ImageDataset):
 
         label_ha_path = os.path.join(self.label_ha_dir, name + '.npy')
 
-        label_la = np.load(label_la_path).item()
-        label_ha = np.load(label_ha_path).item()
+        label_la = np.load(label_la_path, allow_pickle=True).item()
+        label_ha = np.load(label_ha_path, allow_pickle=True).item()
 
         label = np.array(list(label_la.values()) + list(label_ha.values()))
         label = np.transpose(label, (1, 2, 0))

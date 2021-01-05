@@ -8,6 +8,10 @@ The code and trained models of:
 
 **Weakly-Supervised Semantic Segmentation via Sub-category Exploration, [Yu-Ting Chang](https://scholar.google.com/citations?user=5LRrNYgAAAAJ&hl=en), [Qiaosong Wang](https://scholar.google.com/citations?user=uiTAQLEAAAAJ&hl=en), [Wei-Chih Hung](https://scholar.google.com/citations?user=AjaDLjYAAAAJ&hl=en), [Robinson Piramuthu](https://scholar.google.com/citations?user=2CkqEGcAAAAJ&hl=nl), [Yi-Hsuan Tsai](https://scholar.google.com/citations?user=zjI51wEAAAAJ&hl=en) and [Ming-Hsuan Yang](https://scholar.google.com/citations?user=p9-ohHsAAAAJ&hl=en), CVPR 2020** [[Paper]](https://arxiv.org/abs/2008.01183)
 
+This respository was forked from [here](https://github.com/Juliachang/SC-CAM).
+Some files were revised for Ubuntu 18.04 + PyTorch 1.4.0 + NumPy 1.19.4 + scipy 1.4.1.
+The revised files were tested on AWS with Deep Learning AMI (Ubuntu 18.04) Version 38.0.
+Following sentences are not revised.
 
 We develope a framework to generate semantic segmentation labels of images given their image-level class labels only. We propose a simple yet effective approach to improve the class activation maps by introducing a self-supervised task to discover sub-categories in an unsupervised manner. Our algorithm produces better activation maps, thereby improving the final semantic segmentation performance.
 

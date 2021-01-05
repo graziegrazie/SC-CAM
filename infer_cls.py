@@ -4,6 +4,7 @@ from torch.backends import cudnn
 cudnn.enabled = True
 import voc12.data
 import scipy.misc
+import imageio
 import importlib
 from torch.utils.data import DataLoader
 import torchvision
@@ -84,12 +85,12 @@ if __name__ == '__main__':
                 with torch.cuda.device(i%n_gpus):
                     cam, cam_200 = model_replicas[i%n_gpus].forward_two_cam(img.cuda())
 
-                    cam = F.upsample(cam, orig_img_size, mode='bilinear', align_corners=False)[0]
+                    cam = F.interpolate(cam, orig_img_size, mode='bilinear', align_corners=False)[0]
                     cam = cam.cpu().numpy() * label.clone().view(20, 1, 1).numpy()
                     if i % 2 == 1:
                         cam = np.flip(cam, axis=-1)
 
-                    cam_200 = F.upsample(cam_200, orig_img_size, mode='bilinear', align_corners=False)[0]
+                    cam_200 = F.interpolate(cam_200, orig_img_size, mode='bilinear', align_corners=False)[0]
                     cam_200 = cam_200.cpu().numpy() * label_200.clone().view(20*args.k_cluster, 1, 1).numpy()
                     # cam_200 = cam_200.cpu().numpy() * label_200.clone().view(args.k_cluster, 1, 1).numpy()    ### need to alter args.k_cluster
                     if i % 2 == 1:
