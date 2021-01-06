@@ -11,7 +11,11 @@ The code and trained models of:
 This respository was forked from [here](https://github.com/Juliachang/SC-CAM).
 Some files were revised for Ubuntu 18.04 + PyTorch 1.4.0 + NumPy 1.19.4 + scipy 1.4.1.
 The revised files were tested on AWS with Deep Learning AMI (Ubuntu 18.04) Version 38.0.
+Although an instruction below does not refer, the repository needs a SegmentationClassAug and related files for verification.
+You can download those from [here](https://github.com/kazuto1011/deeplab-pytorch/blob/master/data/datasets/voc12/README.md)
 Following sentences are not revised.
+-------------------------------------------------------------------------------------------------------------
+
 
 We develope a framework to generate semantic segmentation labels of images given their image-level class labels only. We propose a simple yet effective approach to improve the class activation maps by introducing a self-supervised task to discover sub-categories in an unsupervised manner. Our algorithm produces better activation maps, thereby improving the final semantic segmentation performance.
 
