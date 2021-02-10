@@ -12,8 +12,10 @@ This respository was forked from [here](https://github.com/Juliachang/SC-CAM).
 Some files were revised for Ubuntu 18.04 + PyTorch 1.4.0 + NumPy 1.19.4 + scipy 1.4.1.
 The revised files were tested on AWS with Deep Learning AMI (Ubuntu 18.04) Version 38.0.
 Although an instruction below does not refer, the repository needs a SegmentationClassAug and related files for verification.
-You can download those from [here](https://github.com/kazuto1011/deeplab-pytorch/blob/master/data/datasets/voc12/README.md)
-Following sentences are not revised.
+You can download those from [here](https://github.com/kazuto1011/deeplab-pytorch/blob/master/data/datasets/voc12/README.md).
+In addition, you need to install tensorboardX, mxnet via pip or other command.
+
+Below sentences are not revised (i.e. original).
 -------------------------------------------------------------------------------------------------------------
 
 
